@@ -17,7 +17,12 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = self.detailItem.timestamp.description;
+        UIWebView *webView = (UIWebView *)[self.view viewWithTag:1];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailItem.link]];
+        
+        [webView loadRequest:request];
+        //[webView loadHTMLString:self.detailItem.html baseURL:nil];
     }
 }
 

@@ -10,6 +10,15 @@
 		84C0103BA839FC0E301B73C6 /* libPods-Reddit RocketUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4F48D0F73A4229C4A295FC /* libPods-Reddit RocketUITests.a */; };
 		95CCEB3E6C654AEEF3B6F5BC /* libPods-Reddit RocketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957F92EBD4963F240126C77 /* libPods-Reddit RocketTests.a */; };
 		EB67D406667CB19B5B6F42C9 /* libPods-Reddit Rocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CE94E8B7FA53691241EFE /* libPods-Reddit Rocket.a */; };
+		EE6D26161EA8469600C39651 /* logo.psd in Resources */ = {isa = PBXBuildFile; fileRef = EE6D260D1EA8469600C39651 /* logo.psd */; };
+		EE6D26171EA8469600C39651 /* logo_1024.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D260E1EA8469600C39651 /* logo_1024.png */; };
+		EE6D26181EA8469600C39651 /* logo_120.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D260F1EA8469600C39651 /* logo_120.png */; };
+		EE6D26191EA8469600C39651 /* logo_152.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26101EA8469600C39651 /* logo_152.png */; };
+		EE6D261A1EA8469600C39651 /* logo_180.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26111EA8469600C39651 /* logo_180.png */; };
+		EE6D261B1EA8469600C39651 /* logo_256.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26121EA8469600C39651 /* logo_256.png */; };
+		EE6D261C1EA8469600C39651 /* logo_512.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26131EA8469600C39651 /* logo_512.png */; };
+		EE6D261D1EA8469600C39651 /* logo_76.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26141EA8469600C39651 /* logo_76.png */; };
+		EE6D261E1EA8469600C39651 /* rocket.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26151EA8469600C39651 /* rocket.jpg */; };
 		EEA481281EA814920015A441 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481271EA814920015A441 /* main.m */; };
 		EEA4812E1EA814920015A441 /* Reddit_Rocket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEA4812C1EA814920015A441 /* Reddit_Rocket.xcdatamodeld */; };
 		EEA481371EA814920015A441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA481351EA814920015A441 /* Main.storyboard */; };
@@ -51,6 +60,15 @@
 		7957F92EBD4963F240126C77 /* libPods-Reddit RocketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reddit RocketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA6208293C958DA91ABEA721 /* Pods-Reddit RocketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit RocketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit RocketUITests/Pods-Reddit RocketUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DDAFE3622A6F712646EA67E4 /* Pods-Reddit RocketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit RocketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit RocketTests/Pods-Reddit RocketTests.release.xcconfig"; sourceTree = "<group>"; };
+		EE6D260D1EA8469600C39651 /* logo.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = logo.psd; sourceTree = "<group>"; };
+		EE6D260E1EA8469600C39651 /* logo_1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_1024.png; sourceTree = "<group>"; };
+		EE6D260F1EA8469600C39651 /* logo_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_120.png; sourceTree = "<group>"; };
+		EE6D26101EA8469600C39651 /* logo_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_152.png; sourceTree = "<group>"; };
+		EE6D26111EA8469600C39651 /* logo_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_180.png; sourceTree = "<group>"; };
+		EE6D26121EA8469600C39651 /* logo_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_256.png; sourceTree = "<group>"; };
+		EE6D26131EA8469600C39651 /* logo_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_512.png; sourceTree = "<group>"; };
+		EE6D26141EA8469600C39651 /* logo_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_76.png; sourceTree = "<group>"; };
+		EE6D26151EA8469600C39651 /* rocket.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rocket.jpg; sourceTree = "<group>"; };
 		EEA481231EA814920015A441 /* Reddit Rocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Rocket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA481271EA814920015A441 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEA4812D1EA814920015A441 /* Reddit_Rocket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reddit_Rocket.xcdatamodel; sourceTree = "<group>"; };
@@ -127,6 +145,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EE6D260C1EA8469600C39651 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				EE6D260D1EA8469600C39651 /* logo.psd */,
+				EE6D260E1EA8469600C39651 /* logo_1024.png */,
+				EE6D260F1EA8469600C39651 /* logo_120.png */,
+				EE6D26101EA8469600C39651 /* logo_152.png */,
+				EE6D26111EA8469600C39651 /* logo_180.png */,
+				EE6D26121EA8469600C39651 /* logo_256.png */,
+				EE6D26131EA8469600C39651 /* logo_512.png */,
+				EE6D26141EA8469600C39651 /* logo_76.png */,
+				EE6D26151EA8469600C39651 /* rocket.jpg */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		EEA4811A1EA814920015A441 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +186,7 @@
 		EEA481251EA814920015A441 /* Reddit Rocket */ = {
 			isa = PBXGroup;
 			children = (
+				EE6D260C1EA8469600C39651 /* Images */,
 				EEB32C3C1EA819630057EE54 /* Storyboards */,
 				EEA481271EA814920015A441 /* main.m */,
 				EEB32C2C1EA8191E0057EE54 /* Classes */,
@@ -356,8 +391,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6D261A1EA8469600C39651 /* logo_180.png in Resources */,
 				EEA4813C1EA814920015A441 /* LaunchScreen.storyboard in Resources */,
 				EEA481391EA814920015A441 /* Assets.xcassets in Resources */,
+				EE6D261C1EA8469600C39651 /* logo_512.png in Resources */,
+				EE6D26181EA8469600C39651 /* logo_120.png in Resources */,
+				EE6D261E1EA8469600C39651 /* rocket.jpg in Resources */,
+				EE6D26161EA8469600C39651 /* logo.psd in Resources */,
+				EE6D261B1EA8469600C39651 /* logo_256.png in Resources */,
+				EE6D26171EA8469600C39651 /* logo_1024.png in Resources */,
+				EE6D26191EA8469600C39651 /* logo_152.png in Resources */,
+				EE6D261D1EA8469600C39651 /* logo_76.png in Resources */,
 				EEA481371EA814920015A441 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

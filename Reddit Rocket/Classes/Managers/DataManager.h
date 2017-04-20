@@ -20,5 +20,6 @@
 -(NSArray *) getListOfArticles;
 
 -(NSString *) getStringFromEntry:(GDataXMLElement *) entryElement withName:(NSString *)name;
+-(NSString *) getStringFromEntryAttribute:(GDataXMLElement *) entryElement withName:(NSString *)name withAttribute:(NSString *)attribute;
 
 @end

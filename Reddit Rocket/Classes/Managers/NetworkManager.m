@@ -65,6 +65,7 @@ static NetworkManager *sharedInstance = nil;
 {
     self.latestCompletionHandler = completionHandler;
     
+    self.data = nil;
     
     NSURL* callUrl = [NSURL URLWithString:url];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];

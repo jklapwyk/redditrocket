@@ -52,12 +52,27 @@ static DataManager *sharedInstance = nil;
     for( GDataXMLElement *entryElement in entryElements ){
         
         NSString *title = [self getStringFromEntry:entryElement withName:@"title"];
-        NSLog(@"TITLE = %@", title);
+        NSString *article_id = [self getStringFromEntry:entryElement withName:@"id"];
+        NSString *html = [self getStringFromEntry:entryElement withName:@"content"];
+        NSString *link = [self getStringFromEntryAttribute:entryElement withName:@"link" withAttribute:@"href"];
+        NSString *category = [self getStringFromEntryAttribute:entryElement withName:@"category" withAttribute:@"term"];
+        
+        NSString *formattedUpdatedDateString = [self getStringFromEntry:entryElement withName:@"updated"];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        NSDate *updatedDate = [dateFormat dateFromString:formattedUpdatedDateString];
+        
+        NSLog(@"TITLE = %@  UPDATED DATE ", title, updatedDate);
         
         Article *article = [[Article alloc] initWithContext:context];
         // If appropriate, configure the new managed object.
         article.timestamp = [NSDate date];
         article.title = title;
+        article.html = html;
+        article.id = article_id;
+        article.link = link;
+        article.category = category;
+        article.updated_date = updatedDate;
         
     }
     
@@ -112,6 +127,18 @@ static DataManager *sharedInstance = nil;
     if( [namedElements count] > 0 ){
         GDataXMLElement *nameElement = (GDataXMLElement *) [namedElements objectAtIndex:0];
         return nameElement.stringValue;
+    } else {
+        return nil;
+    }
+}
+
+-(NSString *) getStringFromEntryAttribute:(GDataXMLElement *) entryElement withName:(NSString *)name withAttribute:(NSString *)attribute
+{
+    NSArray *namedElements = [entryElement elementsForName:name];
+    if( [namedElements count] > 0 ){
+        GDataXMLElement *nameElement = (GDataXMLElement *) [namedElements objectAtIndex:0];
+        GDataXMLNode *nameElementAttribute = [nameElement attributeForName:attribute];
+        return nameElementAttribute.stringValue;
     } else {
         return nil;
     }

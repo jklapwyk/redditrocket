@@ -2,8 +2,10 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="Article" representedClassName="Article" codeGenerationType="class">
         <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="html" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="is_pinned" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnail_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timestamp" optional="YES" attributeType="Date">
             <userInfo/>
@@ -13,6 +15,6 @@
         <userInfo/>
     </entity>
     <elements>
-        <element name="Article" positionX="261" positionY="189" width="128" height="150"/>
+        <element name="Article" positionX="261" positionY="189" width="128" height="180"/>
     </elements>
 </model>

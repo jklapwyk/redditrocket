@@ -24,8 +24,19 @@
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
+    
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.tableView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    
+    
     [self getRedditData];
     
+}
+
+-(void) refreshTable
+{
+    [self getRedditData];
 }
 
 -(void) getRedditData
@@ -44,7 +55,7 @@
     
     [[DataManager sharedInstance] updateArticlesInDatabaseWithXML:xmlString];
     
-    
+    [self.refreshControl endRefreshing];
 }
 
 
@@ -136,7 +147,24 @@
 
 
 - (void)configureCell:(UITableViewCell *)cell withArticle:(Article *)article {
-    cell.textLabel.text = article.title;
+    //cell.textLabel.text = article.title;
+    
+    UILabel *titleLabel = [cell.contentView viewWithTag:1];
+    UILabel *subtitleLabel = [cell.contentView viewWithTag:2];
+    UILabel *dateLabel = [cell.contentView viewWithTag:3];
+    
+    titleLabel.text = article.title;
+    subtitleLabel.text = article.category;
+    
+    NSDate *updatedDate = article.updated_date;
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MMM d, yyyy, h:mm a"];
+    NSString *updatedDateString = [dateFormat stringFromDate:updatedDate];
+    
+    
+    dateLabel.text = updatedDateString;
+    
 }
 
 
@@ -154,7 +182,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updated_date" ascending:NO];
 
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
     

@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) NSFetchedResultsController<Article *> *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 -(void) getRedditData;
 -(void) doneGettingRedditData:(NSString *)xmlString;
