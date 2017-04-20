@@ -7,16 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84C0103BA839FC0E301B73C6 /* libPods-Reddit RocketUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4F48D0F73A4229C4A295FC /* libPods-Reddit RocketUITests.a */; };
+		95CCEB3E6C654AEEF3B6F5BC /* libPods-Reddit RocketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7957F92EBD4963F240126C77 /* libPods-Reddit RocketTests.a */; };
+		EB67D406667CB19B5B6F42C9 /* libPods-Reddit Rocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 297CE94E8B7FA53691241EFE /* libPods-Reddit Rocket.a */; };
 		EEA481281EA814920015A441 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481271EA814920015A441 /* main.m */; };
-		EEA4812B1EA814920015A441 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA4812A1EA814920015A441 /* AppDelegate.m */; };
 		EEA4812E1EA814920015A441 /* Reddit_Rocket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEA4812C1EA814920015A441 /* Reddit_Rocket.xcdatamodeld */; };
-		EEA481311EA814920015A441 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481301EA814920015A441 /* MasterViewController.m */; };
-		EEA481341EA814920015A441 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481331EA814920015A441 /* DetailViewController.m */; };
 		EEA481371EA814920015A441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA481351EA814920015A441 /* Main.storyboard */; };
 		EEA481391EA814920015A441 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEA481381EA814920015A441 /* Assets.xcassets */; };
 		EEA4813C1EA814920015A441 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA4813A1EA814920015A441 /* LaunchScreen.storyboard */; };
 		EEA481471EA814920015A441 /* Reddit_RocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481461EA814920015A441 /* Reddit_RocketTests.m */; };
 		EEA481521EA814930015A441 /* Reddit_RocketUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481511EA814930015A441 /* Reddit_RocketUITests.m */; };
+		EEB32C381EA8191E0057EE54 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C2F1EA8191E0057EE54 /* DetailViewController.m */; };
+		EEB32C391EA8191E0057EE54 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C311EA8191E0057EE54 /* MasterViewController.m */; };
+		EEB32C3A1EA8191E0057EE54 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C341EA8191E0057EE54 /* AppDelegate.m */; };
+		EEB32C3B1EA8191E0057EE54 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C371EA8191E0057EE54 /* NetworkManager.m */; };
+		EEB32C3F1EA825030057EE54 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C3E1EA825030057EE54 /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,15 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		028988D8B308B5B9B58FC2BD /* Pods-Reddit Rocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit Rocket.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit Rocket/Pods-Reddit Rocket.release.xcconfig"; sourceTree = "<group>"; };
+		0773D026C5D9CE62A4CD5621 /* Pods-Reddit Rocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit Rocket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit Rocket/Pods-Reddit Rocket.debug.xcconfig"; sourceTree = "<group>"; };
+		195A458E9835BE36FC1B228C /* Pods-Reddit RocketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit RocketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit RocketTests/Pods-Reddit RocketTests.debug.xcconfig"; sourceTree = "<group>"; };
+		297CE94E8B7FA53691241EFE /* libPods-Reddit Rocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reddit Rocket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E4F48D0F73A4229C4A295FC /* libPods-Reddit RocketUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reddit RocketUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		628128F972528729E4F0A006 /* Pods-Reddit RocketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit RocketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit RocketUITests/Pods-Reddit RocketUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7957F92EBD4963F240126C77 /* libPods-Reddit RocketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reddit RocketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA6208293C958DA91ABEA721 /* Pods-Reddit RocketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit RocketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit RocketUITests/Pods-Reddit RocketUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DDAFE3622A6F712646EA67E4 /* Pods-Reddit RocketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reddit RocketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reddit RocketTests/Pods-Reddit RocketTests.release.xcconfig"; sourceTree = "<group>"; };
 		EEA481231EA814920015A441 /* Reddit Rocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Rocket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA481271EA814920015A441 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EEA481291EA814920015A441 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EEA4812A1EA814920015A441 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		EEA4812D1EA814920015A441 /* Reddit_Rocket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reddit_Rocket.xcdatamodel; sourceTree = "<group>"; };
-		EEA4812F1EA814920015A441 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		EEA481301EA814920015A441 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		EEA481321EA814920015A441 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		EEA481331EA814920015A441 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		EEA481361EA814920015A441 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EEA481381EA814920015A441 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEA4813B1EA814920015A441 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +64,16 @@
 		EEA4814D1EA814930015A441 /* Reddit RocketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reddit RocketUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA481511EA814930015A441 /* Reddit_RocketUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reddit_RocketUITests.m; sourceTree = "<group>"; };
 		EEA481531EA814930015A441 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEB32C2E1EA8191E0057EE54 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		EEB32C2F1EA8191E0057EE54 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		EEB32C301EA8191E0057EE54 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		EEB32C311EA8191E0057EE54 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		EEB32C331EA8191E0057EE54 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EEB32C341EA8191E0057EE54 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EEB32C361EA8191E0057EE54 /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		EEB32C371EA8191E0057EE54 /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		EEB32C3D1EA825030057EE54 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		EEB32C3E1EA825030057EE54 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB67D406667CB19B5B6F42C9 /* libPods-Reddit Rocket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CCEB3E6C654AEEF3B6F5BC /* libPods-Reddit RocketTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +97,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84C0103BA839FC0E301B73C6 /* libPods-Reddit RocketUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADC508B7B17F418B9359DCCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				297CE94E8B7FA53691241EFE /* libPods-Reddit Rocket.a */,
+				7957F92EBD4963F240126C77 /* libPods-Reddit RocketTests.a */,
+				4E4F48D0F73A4229C4A295FC /* libPods-Reddit RocketUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4103E9670AAB3442FC635AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0773D026C5D9CE62A4CD5621 /* Pods-Reddit Rocket.debug.xcconfig */,
+				028988D8B308B5B9B58FC2BD /* Pods-Reddit Rocket.release.xcconfig */,
+				195A458E9835BE36FC1B228C /* Pods-Reddit RocketTests.debug.xcconfig */,
+				DDAFE3622A6F712646EA67E4 /* Pods-Reddit RocketTests.release.xcconfig */,
+				DA6208293C958DA91ABEA721 /* Pods-Reddit RocketUITests.debug.xcconfig */,
+				628128F972528729E4F0A006 /* Pods-Reddit RocketUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EEA4811A1EA814920015A441 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +134,8 @@
 				EEA481451EA814920015A441 /* Reddit RocketTests */,
 				EEA481501EA814930015A441 /* Reddit RocketUITests */,
 				EEA481241EA814920015A441 /* Products */,
+				E4103E9670AAB3442FC635AF /* Pods */,
+				ADC508B7B17F418B9359DCCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,16 +152,10 @@
 		EEA481251EA814920015A441 /* Reddit Rocket */ = {
 			isa = PBXGroup;
 			children = (
-				EEA481291EA814920015A441 /* AppDelegate.h */,
-				EEA4812A1EA814920015A441 /* AppDelegate.m */,
-				EEA4812F1EA814920015A441 /* MasterViewController.h */,
-				EEA481301EA814920015A441 /* MasterViewController.m */,
-				EEA481321EA814920015A441 /* DetailViewController.h */,
-				EEA481331EA814920015A441 /* DetailViewController.m */,
-				EEA481351EA814920015A441 /* Main.storyboard */,
+				EEB32C3C1EA819630057EE54 /* Storyboards */,
+				EEA481271EA814920015A441 /* main.m */,
+				EEB32C2C1EA8191E0057EE54 /* Classes */,
 				EEA481381EA814920015A441 /* Assets.xcassets */,
-				EEA4813A1EA814920015A441 /* LaunchScreen.storyboard */,
-				EEA4813D1EA814920015A441 /* Info.plist */,
 				EEA4812C1EA814920015A441 /* Reddit_Rocket.xcdatamodeld */,
 				EEA481261EA814920015A441 /* Supporting Files */,
 			);
@@ -125,7 +165,7 @@
 		EEA481261EA814920015A441 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EEA481271EA814920015A441 /* main.m */,
+				EEA4813D1EA814920015A441 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -148,6 +188,56 @@
 			path = "Reddit RocketUITests";
 			sourceTree = "<group>";
 		};
+		EEB32C2C1EA8191E0057EE54 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EEB32C2D1EA8191E0057EE54 /* Controllers */,
+				EEB32C321EA8191E0057EE54 /* Delegates */,
+				EEB32C351EA8191E0057EE54 /* Managers */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EEB32C2D1EA8191E0057EE54 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EEB32C2E1EA8191E0057EE54 /* DetailViewController.h */,
+				EEB32C2F1EA8191E0057EE54 /* DetailViewController.m */,
+				EEB32C301EA8191E0057EE54 /* MasterViewController.h */,
+				EEB32C311EA8191E0057EE54 /* MasterViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EEB32C321EA8191E0057EE54 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				EEB32C331EA8191E0057EE54 /* AppDelegate.h */,
+				EEB32C341EA8191E0057EE54 /* AppDelegate.m */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		EEB32C351EA8191E0057EE54 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EEB32C361EA8191E0057EE54 /* NetworkManager.h */,
+				EEB32C371EA8191E0057EE54 /* NetworkManager.m */,
+				EEB32C3D1EA825030057EE54 /* DataManager.h */,
+				EEB32C3E1EA825030057EE54 /* DataManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		EEB32C3C1EA819630057EE54 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EEA481351EA814920015A441 /* Main.storyboard */,
+				EEA4813A1EA814920015A441 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -155,9 +245,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEA481561EA814930015A441 /* Build configuration list for PBXNativeTarget "Reddit Rocket" */;
 			buildPhases = (
+				85D74E2BDA3F0BA1F151A191 /* [CP] Check Pods Manifest.lock */,
 				EEA4811F1EA814920015A441 /* Sources */,
 				EEA481201EA814920015A441 /* Frameworks */,
 				EEA481211EA814920015A441 /* Resources */,
+				FA2FD3771993AAD9CC2EAAF8 /* [CP] Embed Pods Frameworks */,
+				01E5E8F68C8D297E9C76DE5C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,9 +265,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEA481591EA814930015A441 /* Build configuration list for PBXNativeTarget "Reddit RocketTests" */;
 			buildPhases = (
+				0CD035C78E95CC0037E1AA82 /* [CP] Check Pods Manifest.lock */,
 				EEA4813E1EA814920015A441 /* Sources */,
 				EEA4813F1EA814920015A441 /* Frameworks */,
 				EEA481401EA814920015A441 /* Resources */,
+				710E12191F3E273D0C20F40F /* [CP] Embed Pods Frameworks */,
+				3279FC5378B03772E2F531CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -190,9 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEA4815C1EA814930015A441 /* Build configuration list for PBXNativeTarget "Reddit RocketUITests" */;
 			buildPhases = (
+				80D432448956688DFA48AE82 /* [CP] Check Pods Manifest.lock */,
 				EEA481491EA814930015A441 /* Sources */,
 				EEA4814A1EA814930015A441 /* Frameworks */,
 				EEA4814B1EA814930015A441 /* Resources */,
+				B07C756BEC9E4DD143679EBA /* [CP] Embed Pods Frameworks */,
+				CAAA087DB25A4C27DB6B6345 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -279,16 +378,156 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01E5E8F68C8D297E9C76DE5C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reddit Rocket/Pods-Reddit Rocket-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0CD035C78E95CC0037E1AA82 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3279FC5378B03772E2F531CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reddit RocketTests/Pods-Reddit RocketTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		710E12191F3E273D0C20F40F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reddit RocketTests/Pods-Reddit RocketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80D432448956688DFA48AE82 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		85D74E2BDA3F0BA1F151A191 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B07C756BEC9E4DD143679EBA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reddit RocketUITests/Pods-Reddit RocketUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAAA087DB25A4C27DB6B6345 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reddit RocketUITests/Pods-Reddit RocketUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA2FD3771993AAD9CC2EAAF8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Reddit Rocket/Pods-Reddit Rocket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EEA4811F1EA814920015A441 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEA481341EA814920015A441 /* DetailViewController.m in Sources */,
-				EEA481311EA814920015A441 /* MasterViewController.m in Sources */,
-				EEA4812B1EA814920015A441 /* AppDelegate.m in Sources */,
+				EEB32C391EA8191E0057EE54 /* MasterViewController.m in Sources */,
 				EEA481281EA814920015A441 /* main.m in Sources */,
+				EEB32C3F1EA825030057EE54 /* DataManager.m in Sources */,
 				EEA4812E1EA814920015A441 /* Reddit_Rocket.xcdatamodeld in Sources */,
+				EEB32C381EA8191E0057EE54 /* DetailViewController.m in Sources */,
+				EEB32C3B1EA8191E0057EE54 /* NetworkManager.m in Sources */,
+				EEB32C3A1EA8191E0057EE54 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +674,7 @@
 		};
 		EEA481571EA814930015A441 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0773D026C5D9CE62A4CD5621 /* Pods-Reddit Rocket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DGJR7A3S7T;
@@ -447,6 +687,7 @@
 		};
 		EEA481581EA814930015A441 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 028988D8B308B5B9B58FC2BD /* Pods-Reddit Rocket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = DGJR7A3S7T;
@@ -459,6 +700,7 @@
 		};
 		EEA4815A1EA814930015A441 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 195A458E9835BE36FC1B228C /* Pods-Reddit RocketTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DGJR7A3S7T;
@@ -472,6 +714,7 @@
 		};
 		EEA4815B1EA814930015A441 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAFE3622A6F712646EA67E4 /* Pods-Reddit RocketTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DGJR7A3S7T;
@@ -485,6 +728,7 @@
 		};
 		EEA4815D1EA814930015A441 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA6208293C958DA91ABEA721 /* Pods-Reddit RocketUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = DGJR7A3S7T;
 				INFOPLIST_FILE = "Reddit RocketUITests/Info.plist";
@@ -497,6 +741,7 @@
 		};
 		EEA4815E1EA814930015A441 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 628128F972528729E4F0A006 /* Pods-Reddit RocketUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = DGJR7A3S7T;
 				INFOPLIST_FILE = "Reddit RocketUITests/Info.plist";
@@ -526,6 +771,7 @@
 				EEA481581EA814930015A441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EEA481591EA814930015A441 /* Build configuration list for PBXNativeTarget "Reddit RocketTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +780,7 @@
 				EEA4815B1EA814930015A441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EEA4815C1EA814930015A441 /* Build configuration list for PBXNativeTarget "Reddit RocketUITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +789,7 @@
 				EEA4815E1EA814930015A441 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

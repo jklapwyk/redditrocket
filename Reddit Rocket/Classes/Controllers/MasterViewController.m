@@ -23,6 +23,28 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    [self getRedditData];
+    
+}
+
+-(void) getRedditData
+{
+    [NetworkManager getRedditDataWithCompletionHandler:^(NSDictionary *response, NSError *error) {
+        if( error == nil ){
+            [self doneGettingRedditData:[response objectForKey:@"data"]];
+        }
+    }];
+}
+
+
+-(void) doneGettingRedditData:(NSString *)xmlString
+{
+    //NSLog(@"REDDIT DATA HAS BEEN COMPLETED = %@", xmlString );
+    
+    [[DataManager sharedInstance] updateArticlesInDatabaseWithXML:xmlString];
+    
+    
 }
 
 
@@ -40,7 +62,7 @@
 
 - (void)insertNewObject:(id)sender {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    Event *newEvent = [[Event alloc] initWithContext:context];
+    Article *newEvent = [[Article alloc] initWithContext:context];
         
     // If appropriate, configure the new managed object.
     newEvent.timestamp = [NSDate date];
@@ -61,7 +83,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        Event *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        Article *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
@@ -85,8 +107,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    [self configureCell:cell withEvent:event];
+    Article *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [self configureCell:cell withArticle:article];
     return cell;
 }
 
@@ -113,20 +135,20 @@
 }
 
 
-- (void)configureCell:(UITableViewCell *)cell withEvent:(Event *)event {
-    cell.textLabel.text = event.timestamp.description;
+- (void)configureCell:(UITableViewCell *)cell withArticle:(Article *)article {
+    cell.textLabel.text = article.title;
 }
 
 
 #pragma mark - Fetched results controller
 
-- (NSFetchedResultsController<Event *> *)fetchedResultsController
+- (NSFetchedResultsController<Article *> *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
         return _fetchedResultsController;
     }
     
-    NSFetchRequest<Event *> *fetchRequest = Event.fetchRequest;
+    NSFetchRequest<Article *> *fetchRequest = Article.fetchRequest;
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
@@ -138,7 +160,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController<Event *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController<Article *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
     aFetchedResultsController.delegate = self;
     
     NSError *error = nil;
@@ -191,7 +213,7 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withEvent:anObject];
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withArticle:anObject];
             break;
             
         case NSFetchedResultsChangeMove:

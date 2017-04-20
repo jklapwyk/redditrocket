@@ -37,7 +37,7 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(Event *)newDetailItem {
+- (void)setDetailItem:(Article *)newDetailItem {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
         

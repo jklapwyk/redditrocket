@@ -11,7 +11,7 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) Event *detailItem;
+@property (strong, nonatomic) Article *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end
