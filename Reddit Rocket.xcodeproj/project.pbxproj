@@ -18,7 +18,7 @@
 		EE6D261B1EA8469600C39651 /* logo_256.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26121EA8469600C39651 /* logo_256.png */; };
 		EE6D261C1EA8469600C39651 /* logo_512.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26131EA8469600C39651 /* logo_512.png */; };
 		EE6D261D1EA8469600C39651 /* logo_76.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26141EA8469600C39651 /* logo_76.png */; };
-		EE6D261E1EA8469600C39651 /* rocket.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26151EA8469600C39651 /* rocket.jpg */; };
+		EE6D26201EA8607B00C39651 /* space_ship_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D261F1EA8607B00C39651 /* space_ship_logo.png */; };
 		EEA481281EA814920015A441 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481271EA814920015A441 /* main.m */; };
 		EEA4812E1EA814920015A441 /* Reddit_Rocket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEA4812C1EA814920015A441 /* Reddit_Rocket.xcdatamodeld */; };
 		EEA481371EA814920015A441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA481351EA814920015A441 /* Main.storyboard */; };
@@ -68,7 +68,7 @@
 		EE6D26121EA8469600C39651 /* logo_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_256.png; sourceTree = "<group>"; };
 		EE6D26131EA8469600C39651 /* logo_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_512.png; sourceTree = "<group>"; };
 		EE6D26141EA8469600C39651 /* logo_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_76.png; sourceTree = "<group>"; };
-		EE6D26151EA8469600C39651 /* rocket.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rocket.jpg; sourceTree = "<group>"; };
+		EE6D261F1EA8607B00C39651 /* space_ship_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space_ship_logo.png; sourceTree = "<group>"; };
 		EEA481231EA814920015A441 /* Reddit Rocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Rocket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA481271EA814920015A441 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEA4812D1EA814920015A441 /* Reddit_Rocket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reddit_Rocket.xcdatamodel; sourceTree = "<group>"; };
@@ -148,6 +148,7 @@
 		EE6D260C1EA8469600C39651 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				EE6D261F1EA8607B00C39651 /* space_ship_logo.png */,
 				EE6D260D1EA8469600C39651 /* logo.psd */,
 				EE6D260E1EA8469600C39651 /* logo_1024.png */,
 				EE6D260F1EA8469600C39651 /* logo_120.png */,
@@ -156,7 +157,6 @@
 				EE6D26121EA8469600C39651 /* logo_256.png */,
 				EE6D26131EA8469600C39651 /* logo_512.png */,
 				EE6D26141EA8469600C39651 /* logo_76.png */,
-				EE6D26151EA8469600C39651 /* rocket.jpg */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 				EEA481391EA814920015A441 /* Assets.xcassets in Resources */,
 				EE6D261C1EA8469600C39651 /* logo_512.png in Resources */,
 				EE6D26181EA8469600C39651 /* logo_120.png in Resources */,
-				EE6D261E1EA8469600C39651 /* rocket.jpg in Resources */,
+				EE6D26201EA8607B00C39651 /* space_ship_logo.png in Resources */,
 				EE6D26161EA8469600C39651 /* logo.psd in Resources */,
 				EE6D261B1EA8469600C39651 /* logo_256.png in Resources */,
 				EE6D26171EA8469600C39651 /* logo_1024.png in Resources */,
