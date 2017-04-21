@@ -61,6 +61,8 @@
     
     self.fetchNewResults = YES;
     
+    //[self.tableView beginUpdates];
+    
     [self.tableView reloadData];
     
     //NSError *error = nil;

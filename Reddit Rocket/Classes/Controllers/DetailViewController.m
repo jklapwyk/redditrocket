@@ -22,6 +22,8 @@
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailItem.link]];
         
         [webView loadRequest:request];
+        
+        self.title = self.detailItem.title;
         //[webView loadHTMLString:self.detailItem.html baseURL:nil];
     }
 }
