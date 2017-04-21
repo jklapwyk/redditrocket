@@ -7,6 +7,7 @@ target 'Reddit Rocket' do
 
   # Pods for Reddit Rocket
   pod 'GDataXML-HTML', '~> 1.3.0'
+  pod 'SDWebImage', '~>3.8'
 
   target 'Reddit RocketTests' do
     inherit! :search_paths

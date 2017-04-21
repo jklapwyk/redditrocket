@@ -22,6 +22,11 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
+@property (assign) BOOL is_filtered_by_pin;
+@property (assign) BOOL fetchNewResults;
+
+@property (strong, nonatomic) UIBarButtonItem *filterByPinnedButton;
+
 -(void) getRedditData;
 -(void) doneGettingRedditData:(NSString *)xmlString;
 

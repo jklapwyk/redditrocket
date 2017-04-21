@@ -38,47 +38,92 @@ static DataManager *sharedInstance = nil;
     [self removeAllArticleExceptPinned];
     
     
-    
     NSError *error = nil;
     
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:xmlString error:&error];
     
-    NSArray *entryElements = [doc.rootElement elementsForName:@"entry"];
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
-    
-    for( GDataXMLElement *entryElement in entryElements ){
+    if( error == nil ){
+        NSArray *entryElements = [doc.rootElement elementsForName:@"entry"];
         
-        NSString *title = [self getStringFromEntry:entryElement withName:@"title"];
-        NSString *article_id = [self getStringFromEntry:entryElement withName:@"id"];
-        NSString *html = [self getStringFromEntry:entryElement withName:@"content"];
-        NSString *link = [self getStringFromEntryAttribute:entryElement withName:@"link" withAttribute:@"href"];
-        NSString *category = [self getStringFromEntryAttribute:entryElement withName:@"category" withAttribute:@"term"];
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
-        NSString *formattedUpdatedDateString = [self getStringFromEntry:entryElement withName:@"updated"];
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-        NSDate *updatedDate = [dateFormat dateFromString:formattedUpdatedDateString];
+        NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
         
-        NSLog(@"TITLE = %@  UPDATED DATE ", title, updatedDate);
-        
-        Article *article = [[Article alloc] initWithContext:context];
-        // If appropriate, configure the new managed object.
-        article.timestamp = [NSDate date];
-        article.title = title;
-        article.html = html;
-        article.id = article_id;
-        article.link = link;
-        article.category = category;
-        article.updated_date = updatedDate;
-        
+        for( GDataXMLElement *entryElement in entryElements ){
+            
+            NSString *title = [self getStringFromEntry:entryElement withName:@"title"];
+            NSString *article_id = [self getStringFromEntry:entryElement withName:@"id"];
+            NSString *html = [self getStringFromEntry:entryElement withName:@"content"];
+            NSString *link = [self getStringFromEntryAttribute:entryElement withName:@"link" withAttribute:@"href"];
+            NSString *category = [self getStringFromEntryAttribute:entryElement withName:@"category" withAttribute:@"term"];
+            
+            NSString *formattedUpdatedDateString = [self getStringFromEntry:entryElement withName:@"updated"];
+            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+            [dateFormat setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+            NSDate *updatedDate = [dateFormat dateFromString:formattedUpdatedDateString];
+            
+            GDataXMLDocument *contentDoc = [[GDataXMLDocument alloc] initWithHTMLString:html error:&error];
+            NSString *imgString = @"";
+            
+            if( error == nil ){
+                
+                NSArray *imgs = [contentDoc.rootElement nodesForXPath:@"//img/@src" error:nil];
+                if( [imgs count] > 0 ){
+                    GDataXMLNode *imgNode = [imgs objectAtIndex:0];
+                    imgString = imgNode.stringValue;
+                }
+                
+                
+                
+            }
+            
+            
+            NSArray *articlesWithSameId = [self getArticlesById:article_id];
+            
+            if( [articlesWithSameId count] < 1 ){
+                
+                Article *article = [[Article alloc] initWithContext:context];
+                // If appropriate, configure the new managed object.
+                article.timestamp = [NSDate date];
+                article.title = title;
+                article.html = html;
+                article.id = article_id;
+                article.link = link;
+                article.category = category;
+                article.updated_date = updatedDate;
+                if( ![imgString isEqualToString:@""] ){
+                    article.thumbnail_url = imgString;
+                }
+                
+            }
+            
+            
+            
+        }
     }
     
     
     
     
+    
+    
+}
+
+-(NSArray *) getArticlesById:(NSString *) articleId
+{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Article"];
+    request.predicate = [NSPredicate predicateWithFormat:@"id=%@", articleId];
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Article objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    return results;
 }
 
 -(NSArray *) getListOfArticles
@@ -100,23 +145,26 @@ static DataManager *sharedInstance = nil;
 -(void) removeAllArticleExceptPinned
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectModel *model = appDelegate.persistentContainer.managedObjectModel;
     NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
     
     
     NSArray *articles = [self getListOfArticles];
     
-    for( Article *article in articles ){
-        
-        if( !article.is_pinned ){
-            [context deleteObject:article];
+    if( [articles count] > 0 ){
+        for( Article *article in articles ){
+            
+            if( !article.is_pinned ){
+                [context deleteObject:article];
+            }
+            
         }
         
+        NSError *error = nil;
+        
+        [context save:&error];
     }
     
-    NSError *error = nil;
     
-    [context save:&error];
     
     
 }
@@ -135,6 +183,9 @@ static DataManager *sharedInstance = nil;
 -(NSString *) getStringFromEntryAttribute:(GDataXMLElement *) entryElement withName:(NSString *)name withAttribute:(NSString *)attribute
 {
     NSArray *namedElements = [entryElement elementsForName:name];
+    
+    
+    
     if( [namedElements count] > 0 ){
         GDataXMLElement *nameElement = (GDataXMLElement *) [namedElements objectAtIndex:0];
         GDataXMLNode *nameElementAttribute = [nameElement attributeForName:attribute];

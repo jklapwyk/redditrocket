@@ -19,6 +19,10 @@
 		EE6D261C1EA8469600C39651 /* logo_512.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26131EA8469600C39651 /* logo_512.png */; };
 		EE6D261D1EA8469600C39651 /* logo_76.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D26141EA8469600C39651 /* logo_76.png */; };
 		EE6D26201EA8607B00C39651 /* space_ship_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = EE6D261F1EA8607B00C39651 /* space_ship_logo.png */; };
+		EE9899131EA98FB800EE3C4F /* pin_off.png in Resources */ = {isa = PBXBuildFile; fileRef = EE98990F1EA98FB800EE3C4F /* pin_off.png */; };
+		EE9899141EA98FB800EE3C4F /* pin_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE9899101EA98FB800EE3C4F /* pin_off@2x.png */; };
+		EE9899151EA98FB800EE3C4F /* pin_on.png in Resources */ = {isa = PBXBuildFile; fileRef = EE9899111EA98FB800EE3C4F /* pin_on.png */; };
+		EE9899161EA98FB800EE3C4F /* pin_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE9899121EA98FB800EE3C4F /* pin_on@2x.png */; };
 		EEA481281EA814920015A441 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481271EA814920015A441 /* main.m */; };
 		EEA4812E1EA814920015A441 /* Reddit_Rocket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEA4812C1EA814920015A441 /* Reddit_Rocket.xcdatamodeld */; };
 		EEA481371EA814920015A441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA481351EA814920015A441 /* Main.storyboard */; };
@@ -69,6 +73,10 @@
 		EE6D26131EA8469600C39651 /* logo_512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_512.png; sourceTree = "<group>"; };
 		EE6D26141EA8469600C39651 /* logo_76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_76.png; sourceTree = "<group>"; };
 		EE6D261F1EA8607B00C39651 /* space_ship_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = space_ship_logo.png; sourceTree = "<group>"; };
+		EE98990F1EA98FB800EE3C4F /* pin_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_off.png; sourceTree = "<group>"; };
+		EE9899101EA98FB800EE3C4F /* pin_off@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_off@2x.png"; sourceTree = "<group>"; };
+		EE9899111EA98FB800EE3C4F /* pin_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin_on.png; sourceTree = "<group>"; };
+		EE9899121EA98FB800EE3C4F /* pin_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_on@2x.png"; sourceTree = "<group>"; };
 		EEA481231EA814920015A441 /* Reddit Rocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reddit Rocket.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEA481271EA814920015A441 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEA4812D1EA814920015A441 /* Reddit_Rocket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reddit_Rocket.xcdatamodel; sourceTree = "<group>"; };
@@ -150,6 +158,10 @@
 			children = (
 				EE6D261F1EA8607B00C39651 /* space_ship_logo.png */,
 				EE6D260D1EA8469600C39651 /* logo.psd */,
+				EE98990F1EA98FB800EE3C4F /* pin_off.png */,
+				EE9899101EA98FB800EE3C4F /* pin_off@2x.png */,
+				EE9899111EA98FB800EE3C4F /* pin_on.png */,
+				EE9899121EA98FB800EE3C4F /* pin_on@2x.png */,
 				EE6D260E1EA8469600C39651 /* logo_1024.png */,
 				EE6D260F1EA8469600C39651 /* logo_120.png */,
 				EE6D26101EA8469600C39651 /* logo_152.png */,
@@ -392,7 +404,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE6D261A1EA8469600C39651 /* logo_180.png in Resources */,
+				EE9899131EA98FB800EE3C4F /* pin_off.png in Resources */,
+				EE9899141EA98FB800EE3C4F /* pin_off@2x.png in Resources */,
 				EEA4813C1EA814920015A441 /* LaunchScreen.storyboard in Resources */,
+				EE9899151EA98FB800EE3C4F /* pin_on.png in Resources */,
 				EEA481391EA814920015A441 /* Assets.xcassets in Resources */,
 				EE6D261C1EA8469600C39651 /* logo_512.png in Resources */,
 				EE6D26181EA8469600C39651 /* logo_120.png in Resources */,
@@ -401,6 +416,7 @@
 				EE6D261B1EA8469600C39651 /* logo_256.png in Resources */,
 				EE6D26171EA8469600C39651 /* logo_1024.png in Resources */,
 				EE6D26191EA8469600C39651 /* logo_152.png in Resources */,
+				EE9899161EA98FB800EE3C4F /* pin_on@2x.png in Resources */,
 				EE6D261D1EA8469600C39651 /* logo_76.png in Resources */,
 				EEA481371EA814920015A441 /* Main.storyboard in Resources */,
 			);

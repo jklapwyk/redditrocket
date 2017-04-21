@@ -18,6 +18,7 @@
 -(void) updateArticlesInDatabaseWithXML:(NSString *) xmlString;
 -(void) removeAllArticleExceptPinned;
 -(NSArray *) getListOfArticles;
+-(NSArray *) getArticlesById:(NSString *) articleId;
 
 -(NSString *) getStringFromEntry:(GDataXMLElement *) entryElement withName:(NSString *)name;
 -(NSString *) getStringFromEntryAttribute:(GDataXMLElement *) entryElement withName:(NSString *)name withAttribute:(NSString *)attribute;

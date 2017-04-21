@@ -8,6 +8,7 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MasterViewController ()
 
@@ -15,13 +16,21 @@
 
 @implementation MasterViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    self.is_filtered_by_pin = NO;
+    
+    self.fetchNewResults = YES;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    self.filterByPinnedButton = [[UIBarButtonItem alloc] initWithTitle:@"Show Pinned" style:UIBarButtonItemStylePlain target:self action:@selector(filterByPinned)];
+                                  
+    self.navigationItem.rightBarButtonItem = self.filterByPinnedButton;
+    
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     
@@ -31,6 +40,34 @@
     
     
     [self getRedditData];
+    
+}
+
+-(void) filterByPinned
+{
+    NSLog(@"FILTER BY PINNED");
+    
+    self.is_filtered_by_pin = !self.is_filtered_by_pin;
+    
+    if( self.is_filtered_by_pin ){
+        self.filterByPinnedButton.title = @"Show All";
+    } else {
+        self.filterByPinnedButton.title = @"Show Pinned";
+    }
+    
+    
+    //self.fetchedResultsController
+    [NSFetchedResultsController deleteCacheWithName:nil];
+    
+    self.fetchNewResults = YES;
+    
+    [self.tableView reloadData];
+    
+    //NSError *error = nil;
+    //[self.tableView beginUpdates];
+    //[self.fetchedResultsController performFetch:&error];
+    //[self.tableView reloadData];
+    //[self getRedditData];
     
 }
 
@@ -56,6 +93,33 @@
     [[DataManager sharedInstance] updateArticlesInDatabaseWithXML:xmlString];
     
     [self.refreshControl endRefreshing];
+}
+
+- (IBAction) pinTapped: (UIButton *) sender
+{
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    if (indexPath)
+    {
+        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        
+        Article *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        article.is_pinned = !article.is_pinned;
+        
+        NSError *error = nil;
+        if (![context save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            abort();
+        }
+        
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView endUpdates];
+    }
+    
 }
 
 
@@ -153,6 +217,10 @@
     UILabel *subtitleLabel = [cell.contentView viewWithTag:2];
     UILabel *dateLabel = [cell.contentView viewWithTag:3];
     
+    UIImageView *imageView = [cell.contentView viewWithTag:4];
+    
+    UIButton *pinButton = [cell.contentView viewWithTag:5];
+    
     titleLabel.text = article.title;
     subtitleLabel.text = article.category;
     
@@ -165,6 +233,21 @@
     
     dateLabel.text = updatedDateString;
     
+    
+    if( article.thumbnail_url != nil ){
+        [imageView sd_setImageWithURL:[NSURL URLWithString:article.thumbnail_url] placeholderImage:[UIImage imageNamed:@"logo_180"]];
+    } else {
+        [imageView setImage:[UIImage imageNamed:@"logo_180"]];
+    }
+    
+    if( article.is_pinned ){
+        [pinButton.imageView setImage:[UIImage imageNamed:@"pin_on"]];
+    } else {
+        [pinButton.imageView setImage:[UIImage imageNamed:@"pin_off"]];
+    }
+    
+    
+    
 }
 
 
@@ -172,14 +255,25 @@
 
 - (NSFetchedResultsController<Article *> *)fetchedResultsController
 {
-    if (_fetchedResultsController != nil) {
+    
+    NSLog(@"FETCHED RESULTS = %@", (self.is_filtered_by_pin ? @"YES" : @"NO" ));
+    
+    if (_fetchedResultsController != nil && !self.fetchNewResults) {
         return _fetchedResultsController;
     }
+    
+    self.fetchNewResults = NO;
     
     NSFetchRequest<Article *> *fetchRequest = Article.fetchRequest;
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
+    
+    
+    
+    if( self.is_filtered_by_pin ){
+        fetchRequest.predicate = [NSPredicate predicateWithFormat:@"is_pinned==YES"];
+    }
     
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updated_date" ascending:NO];
