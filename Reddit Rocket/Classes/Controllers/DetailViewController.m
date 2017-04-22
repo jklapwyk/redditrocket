@@ -15,16 +15,16 @@
 @implementation DetailViewController
 
 - (void)configureView {
-    // Update the user interface for the detail item.
-    if (self.detailItem) {
+    // Update the user interface for the Article item.
+    if (self.articleItem) {
+        
+        //Load Html into UIWebView
         UIWebView *webView = (UIWebView *)[self.view viewWithTag:1];
-        
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.detailItem.link]];
-        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.articleItem.link]];
         [webView loadRequest:request];
         
-        self.title = self.detailItem.title;
-        //[webView loadHTMLString:self.detailItem.html baseURL:nil];
+        //Set Controller Title to the Article Title
+        self.title = self.articleItem.title;
     }
 }
 
@@ -44,9 +44,9 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(Article *)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+- (void)setArticleItem:(Article *)newArticleItem {
+    if (_articleItem != newArticleItem) {
+        _articleItem = newArticleItem;
         
         // Update the view.
         [self configureView];

@@ -23,6 +23,8 @@
 		EE9899141EA98FB800EE3C4F /* pin_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE9899101EA98FB800EE3C4F /* pin_off@2x.png */; };
 		EE9899151EA98FB800EE3C4F /* pin_on.png in Resources */ = {isa = PBXBuildFile; fileRef = EE9899111EA98FB800EE3C4F /* pin_on.png */; };
 		EE9899161EA98FB800EE3C4F /* pin_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE9899121EA98FB800EE3C4F /* pin_on@2x.png */; };
+		EE9899171EAAE40700EE3C4F /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C371EA8191E0057EE54 /* NetworkManager.m */; };
+		EE9899181EAAE40F00EE3C4F /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EEB32C3E1EA825030057EE54 /* DataManager.m */; };
 		EEA481281EA814920015A441 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEA481271EA814920015A441 /* main.m */; };
 		EEA4812E1EA814920015A441 /* Reddit_Rocket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EEA4812C1EA814920015A441 /* Reddit_Rocket.xcdatamodeld */; };
 		EEA481371EA814920015A441 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEA481351EA814920015A441 /* Main.storyboard */; };
@@ -595,6 +597,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9899171EAAE40700EE3C4F /* NetworkManager.m in Sources */,
+				EE9899181EAAE40F00EE3C4F /* DataManager.m in Sources */,
 				EEA481471EA814920015A441 /* Reddit_RocketTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

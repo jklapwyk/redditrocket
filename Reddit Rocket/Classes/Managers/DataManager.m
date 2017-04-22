@@ -160,7 +160,6 @@ static DataManager *sharedInstance = nil;
         }
         
         NSError *error = nil;
-        
         [context save:&error];
     }
     

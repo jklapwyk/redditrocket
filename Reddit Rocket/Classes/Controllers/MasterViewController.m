@@ -45,7 +45,6 @@
 
 -(void) filterByPinned
 {
-    NSLog(@"FILTER BY PINNED");
     
     self.is_filtered_by_pin = !self.is_filtered_by_pin;
     
@@ -55,22 +54,11 @@
         self.filterByPinnedButton.title = @"Show Pinned";
     }
     
-    
-    //self.fetchedResultsController
     [NSFetchedResultsController deleteCacheWithName:nil];
     
     self.fetchNewResults = YES;
     
-    //[self.tableView beginUpdates];
-    
     [self.tableView reloadData];
-    
-    //NSError *error = nil;
-    //[self.tableView beginUpdates];
-    //[self.fetchedResultsController performFetch:&error];
-    //[self.tableView reloadData];
-    //[self getRedditData];
-    
 }
 
 -(void) refreshTable
@@ -90,8 +78,6 @@
 
 -(void) doneGettingRedditData:(NSString *)xmlString
 {
-    //NSLog(@"REDDIT DATA HAS BEEN COMPLETED = %@", xmlString );
-    
     [[DataManager sharedInstance] updateArticlesInDatabaseWithXML:xmlString];
     
     [self.refreshControl endRefreshing];
@@ -99,27 +85,29 @@
 
 - (IBAction) pinTapped: (UIButton *) sender
 {
+    //On Pin Tap
+    //Get indev path from touch position
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     if (indexPath)
     {
+        //If index path exists update Article is_pinned value and save it.
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        
         Article *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
         article.is_pinned = !article.is_pinned;
         
         NSError *error = nil;
         if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, error.userInfo);
             abort();
         }
         
-        [self.tableView beginUpdates];
+        //Update the targetted table cell based on the updated is_pinned value
+        
+        
+        //[self.tableView beginUpdates];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        [self.tableView endUpdates];
+        //[self.tableView endUpdates];
     }
     
 }
@@ -137,32 +125,18 @@
 }
 
 
-- (void)insertNewObject:(id)sender {
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    Article *newEvent = [[Article alloc] initWithContext:context];
-        
-    // If appropriate, configure the new managed object.
-    newEvent.timestamp = [NSDate date];
-        
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-        abort();
-    }
-}
 
 
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    //On Table Cell tap send the Article object to the Detail Controller
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         Article *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        [controller setArticleItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
@@ -183,6 +157,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //configure table cell based on index path
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Article *article = [self.fetchedResultsController objectAtIndexPath:indexPath];
     [self configureCell:cell withArticle:article];
@@ -196,24 +171,11 @@
 }
 
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-            
-        NSError *error = nil;
-        if (![context save:&error]) {
-            // Replace this implementation with code to handle the error appropriately.
-            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-            abort();
-        }
-    }
-}
 
 
 - (void)configureCell:(UITableViewCell *)cell withArticle:(Article *)article {
-    //cell.textLabel.text = article.title;
+    
+    //Configure cell based on Article object
     
     UILabel *titleLabel = [cell.contentView viewWithTag:1];
     UILabel *subtitleLabel = [cell.contentView viewWithTag:2];
@@ -228,20 +190,21 @@
     
     NSDate *updatedDate = article.updated_date;
     
+    //Format Updated date and assign value to the Date Label
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"MMM d, yyyy, h:mm a"];
     NSString *updatedDateString = [dateFormat stringFromDate:updatedDate];
-    
-    
     dateLabel.text = updatedDateString;
     
     
+    //Check to see if the thumbnail image exists and set the Image View accordingly otherwise use the default image
     if( article.thumbnail_url != nil ){
         [imageView sd_setImageWithURL:[NSURL URLWithString:article.thumbnail_url] placeholderImage:[UIImage imageNamed:@"logo_180"]];
     } else {
         [imageView setImage:[UIImage imageNamed:@"logo_180"]];
     }
     
+    //Modify the look of the pin on the Table Cell based on the is_pinned value
     if( article.is_pinned ){
         [pinButton.imageView setImage:[UIImage imageNamed:@"pin_on"]];
     } else {
@@ -257,8 +220,7 @@
 
 - (NSFetchedResultsController<Article *> *)fetchedResultsController
 {
-    
-    NSLog(@"FETCHED RESULTS = %@", (self.is_filtered_by_pin ? @"YES" : @"NO" ));
+    //Use the fetched Results Controller to grab the saved Articles
     
     if (_fetchedResultsController != nil && !self.fetchNewResults) {
         return _fetchedResultsController;
@@ -272,12 +234,12 @@
     [fetchRequest setFetchBatchSize:20];
     
     
-    
+    //Filter list of Articles based on the is_filtered_by_pin variable if true
     if( self.is_filtered_by_pin ){
         fetchRequest.predicate = [NSPredicate predicateWithFormat:@"is_pinned==YES"];
     }
     
-    // Edit the sort key as appropriate.
+    //Sort the list by updated_date descending
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"updated_date" ascending:NO];
 
     [fetchRequest setSortDescriptors:@[sortDescriptor]];
@@ -289,8 +251,6 @@
     
     NSError *error = nil;
     if (![aFetchedResultsController performFetch:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, error.userInfo);
         abort();
     }
@@ -327,6 +287,8 @@
 {
     UITableView *tableView = self.tableView;
     
+    NSLog(@"DID CHANGE OBJECT");
+    
     switch(type) {
         case NSFetchedResultsChangeInsert:
             [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -351,14 +313,6 @@
     [self.tableView endUpdates];
 }
 
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
+
 
 @end
