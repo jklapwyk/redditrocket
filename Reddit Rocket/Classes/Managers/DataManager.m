@@ -34,7 +34,7 @@ static DataManager *sharedInstance = nil;
 
 -(void) updateArticlesInDatabaseWithXML:(NSString *) xmlString
 {
-    
+    //Remove all articles except the pinned ones.
     [self removeAllArticleExceptPinned];
     
     
@@ -43,6 +43,8 @@ static DataManager *sharedInstance = nil;
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:xmlString error:&error];
     
     if( error == nil ){
+        
+        //Parse the XML string and get the entries and convert them to Article entities to be saved to Core Data
         NSArray *entryElements = [doc.rootElement elementsForName:@"entry"];
         
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -109,8 +111,11 @@ static DataManager *sharedInstance = nil;
     
 }
 
+//Get article by Id
 -(NSArray *) getArticlesById:(NSString *) articleId
 {
+    
+    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = appDelegate.persistentContainer.viewContext;
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Article"];
@@ -126,6 +131,7 @@ static DataManager *sharedInstance = nil;
     return results;
 }
 
+//Get existing list of articles
 -(NSArray *) getListOfArticles
 {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -141,6 +147,7 @@ static DataManager *sharedInstance = nil;
     
     return results;
 }
+
 
 -(void) removeAllArticleExceptPinned
 {
@@ -168,6 +175,8 @@ static DataManager *sharedInstance = nil;
     
 }
 
+
+//Helper functions for parsing the xml strings
 -(NSString *) getStringFromEntry:(GDataXMLElement *) entryElement withName:(NSString *)name
 {
     NSArray *namedElements = [entryElement elementsForName:name];

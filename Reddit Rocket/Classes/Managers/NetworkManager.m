@@ -36,6 +36,7 @@ static NetworkManager *sharedInstance = nil;
 
 -(void) startURLSession
 {
+    //Start URL session
     [self startURLSessionWithIdentifier:@"com.jklapwyk.redditrocket"];
 }
 
@@ -56,9 +57,7 @@ static NetworkManager *sharedInstance = nil;
 
 +(void) getRedditDataWithCompletionHandler:(void (^)(NSDictionary *response, NSError *error))completionHandler
 {
-    
     [[NetworkManager sharedInstance] callUrl:@"https://www.reddit.com/hot/.rss" withCompletionHandler:completionHandler];
-    
 }
 
 -(void) callUrl:(NSString *)url withCompletionHandler:(void (^)(NSDictionary *response, NSError *error))completionHandler
@@ -67,15 +66,14 @@ static NetworkManager *sharedInstance = nil;
     
     self.data = nil;
     
+    //Call url using NSURLSession
+    
     NSURL* callUrl = [NSURL URLWithString:url];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:callUrl];
     
     NSURLSessionTask *dataTask = [self.urlSession dataTaskWithRequest:request];
-    
     [dataTask resume];
-    
-    //NSLog(@"CALL URL = %@", url );
     
 }
 
@@ -96,13 +94,10 @@ static NetworkManager *sharedInstance = nil;
  */
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
-    //NSLog(@"DID COMPLETE %@", error);
-    
     if( error == nil){
         
+        //Once the Url session has been completed call the completion handler provided
         NSString *dataToString = [[NSString alloc] initWithData:self.data encoding:NSUTF8StringEncoding];
-        //NSLog(@"dataToString = %@", dataToString);
-        
         NSDictionary *data = [[NSMutableDictionary alloc] init];
         
         [data setValue:dataToString forKey:@"data"];
@@ -117,7 +112,7 @@ static NetworkManager *sharedInstance = nil;
         
         if( error.code == NSURLErrorNotConnectedToInternet || error.code == NSURLErrorNetworkConnectionLost ){
             
-            //ignore
+            //ignore not being connected to the internet.
             
         }
     }
