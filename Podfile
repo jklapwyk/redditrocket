@@ -12,6 +12,8 @@ target 'Reddit Rocket' do
   target 'Reddit RocketTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'GDataXML-HTML', '~> 1.3.0'
+    pod 'SDWebImage', '~>3.8'
   end
 
   target 'Reddit RocketUITests' do
