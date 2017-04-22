@@ -54,10 +54,7 @@
         self.filterByPinnedButton.title = @"Show Pinned";
     }
     
-    [NSFetchedResultsController deleteCacheWithName:nil];
-    
     self.fetchNewResults = YES;
-    
     [self.tableView reloadData];
 }
 
@@ -86,9 +83,11 @@
 - (IBAction) pinTapped: (UIButton *) sender
 {
     //On Pin Tap
-    //Get indev path from touch position
+    //Get index path from touch position
+    
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+    
     if (indexPath)
     {
         //If index path exists update Article is_pinned value and save it.
@@ -102,12 +101,13 @@
             abort();
         }
         
-        //Update the targetted table cell based on the updated is_pinned value
+        //Reload Table cells based on pin state.
+        if( self.is_filtered_by_pin ){
+            [self.tableView reloadData];
+        } else {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        }
         
-        
-        //[self.tableView beginUpdates];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-        //[self.tableView endUpdates];
     }
     
 }
@@ -183,7 +183,7 @@
     
     UIImageView *imageView = [cell.contentView viewWithTag:4];
     
-    UIButton *pinButton = [cell.contentView viewWithTag:5];
+    
     
     titleLabel.text = article.title;
     subtitleLabel.text = article.category;
@@ -205,14 +205,20 @@
     }
     
     //Modify the look of the pin on the Table Cell based on the is_pinned value
-    if( article.is_pinned ){
+    
+    [self renderPinAtCell:cell IsPinned:article.is_pinned];
+    
+    
+}
+
+-(void) renderPinAtCell:(UITableViewCell *)cell IsPinned:(BOOL)is_pinned
+{
+    UIButton *pinButton = [cell.contentView viewWithTag:5];
+    if( is_pinned ){
         [pinButton.imageView setImage:[UIImage imageNamed:@"pin_on"]];
     } else {
         [pinButton.imageView setImage:[UIImage imageNamed:@"pin_off"]];
     }
-    
-    
-    
 }
 
 
@@ -246,7 +252,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController<Article *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController<Article *> *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
     aFetchedResultsController.delegate = self;
     
     NSError *error = nil;
@@ -287,7 +293,7 @@
 {
     UITableView *tableView = self.tableView;
     
-    NSLog(@"DID CHANGE OBJECT");
+    //If data has been changed adjust the UITableCells accordingly
     
     switch(type) {
         case NSFetchedResultsChangeInsert:
@@ -299,7 +305,10 @@
             break;
             
         case NSFetchedResultsChangeUpdate:
-            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withArticle:anObject];
+            if( [tableView cellForRowAtIndexPath:indexPath] != nil){
+                [self configureCell:[tableView cellForRowAtIndexPath:indexPath] withArticle:anObject];
+            }
+            
             break;
             
         case NSFetchedResultsChangeMove:
